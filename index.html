@@ -1,4 +1,43 @@
-<!DOCTYPE html>
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -64,6 +103,14 @@
     .hero-content {
       position: relative;
       z-index: 1;
+    }
+    .pricing-button {
+      background: #4B5563; /* Default gray from bg-gray-700 */
+      transition: box-shadow 0.3s ease, background 0.3s ease;
+    }
+    .pricing-button:hover {
+      box-shadow: 0 0 15px rgba(107, 70, 193, 0.6); /* Purple glow effect */
+      background: #374151; /* Darker gray on hover from bg-gray-600 */
     }
   </style>
 </head>
@@ -143,7 +190,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-4xl font-bold text-center text-white mb-12 fade-in-up scroll-animate">Pricing Plans</h2>
       <p class="text-center text-gray-400 mb-8 scroll-animate">Choose the plan that fits your needs.</p>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="glassy p-6 rounded-lg shadow-lg fade-in-up scroll-animate">
           <h3 class="text-2xl font-semibold text-white mb-4">Free</h3>
           <p class="text-gray-400 mb-4">Price: Free</p>
@@ -154,6 +201,7 @@
             <li>CLI tool access</li>
             <li>Community support</li>
           </ul>
+          <a href="#contact" class="pricing-button text-white font-semibold py-2 px-4 rounded w-full text-center block scale-in">Get Started</a>
         </div>
         <div class="glassy p-6 rounded-lg shadow-lg fade-in-up scroll-animate">
           <h3 class="text-2xl font-semibold text-white mb-4">Pro – $99/month</h3>
@@ -165,6 +213,19 @@
             <li>Custom detection rules</li>
             <li>Priority support</li>
           </ul>
+          <a href="#contact" class="pricing-button text-white font-semibold py-2 px-4 rounded w-full text-center block scale-in">Subscribe</a>
+        </div>
+        <div class="glassy p-6 rounded-lg shadow-lg fade-in-up scroll-animate">
+          <h3 class="text-2xl font-semibold text-white mb-4">Purple+ – $499/month</h3>
+          <p class="text-gray-400 mb-4">Price: $499/month</p>
+          <ul class="text-gray-400 mb-6 space-y-2">
+            <li>Full-scope web application pentesting</li>
+            <li>Manual testing of external assets (domains, subdomains, APIs)</li>
+            <li>Recon & exploitation of misconfigured services</li>
+            <li>Audit-ready vulnerability reports with CVSS scoring</li>
+            <li>Remediation guidance from security experts</li>
+          </ul>
+          <a href="#contact" class="pricing-button text-white font-semibold py-2 px-4 rounded w-full text-center block scale-in">Book Assessment</a>
         </div>
       </div>
     </div>
