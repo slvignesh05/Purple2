@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PurpleLotus - Cybersecurity Redefined</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .fade-in-up { animation: fadeInUp 1s ease-out; }
+    .scale-in { animation: scaleIn 0.8s ease-out; }
+    .glassy {
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .scroll-animate.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .curved-glassy {
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 10px 20px;
+    }
+    .gradient-purple {
+      background: linear-gradient(to right, #6B46C1, #A78BFA);
+      transition: background 0.3s ease;
+    }
+    .gradient-purple:hover {
+      background: linear-gradient(to right, #553C9A, #8B5CF6);
+    }
+    .hero-background {
+      background: url('https://raw.githubusercontent.com/slvignesh05/Purple-Lotus-website/refs/heads/main/public/Screenshot%202025-07-25%20202413.png') no-repeat center center/cover;
+      background-blend-mode: overlay;
+      position: relative;
+    }
+    .hero-background::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body class="bg-black text-white font-sans">
+  <!-- Header -->
+  <header class="fixed w-full z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="curved-glassy flex items-center justify-between h-16">
+        <div class="flex items-center space-x-2 fade-in-up">
+          <span class="text-purple-400">Purple</span><span class="text-indigo-400">Lotus</span>
+        </div>
+        <nav class="flex space-x-6">
+          <a href="#product" class="hover:text-purple-400 transition duration-300">Product</a>
+          <a href="#services" class="hover:text-purple-400 transition duration-300">Services</a>
+          <a href="#pricing" class="hover:text-purple-400 transition duration-300">Pricing</a>
+          <a href="#faq" class="hover:text-purple-400 transition duration-300">FAQ</a>
+        </nav>
+        <a href="mailto:contact@purplelotus.com" class="gradient-purple text-white font-semibold py-2 px-4 rounded transition duration-300 scale-in">Contact Us</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center justify-center pt-16 hero-background">
+    <div class="text-center max-w-4xl mx-auto px-4 hero-content fade-in-up">
+      <p class="text-orange-400 mb-4">Backed by Expertise</p>
+      <h1 class="text-6xl font-bold mb-6">Because breaches aren't an option</h1>
+      <p class="text-2xl italic text-gray-300 mb-8">Secure your GitHub Actions before they secure your breach.</p>
+      <p class="text-gray-400 mb-8">PurpleLotus finds business logic flaws and multi-step vulnerabilities that traditional tools miss, without drowning you in noise.</p>
+      <div class="space-x-4">
+        <a href="#pricing" class="gradient-purple text-white font-semibold py-3 px-6 rounded scale-in">Book a Demo</a>
+        <a href="#contact" class="bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded scale-in">Try for Free</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Section -->
+  <section id="product" class="py-20 bg-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center text-white mb-12 fade-in-up scroll-animate">Our Flagship Product</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="glassy p-6 rounded-lg shadow-lg fade-in-up scroll-animate">
+          <h3 class="text-2xl font-semibold text-purple-400 mb-4">SecureCI/CD</h3>
+          <p class="text-gray-400">Protect your GitHub CI/CD pipelines with real-time threat detection, automated security checks, and robust access controls for a secure software lifecycle.</p>
+        </div>
+        <div class="glassy p-6 rounded-lg shadow-lg fade-in-up scroll-animate">
+          <h3 class="text-2xl font-semibold text-purple-400 mb-4">Why It Matters</h3>
+          <p class="text-gray-400">The 2020 SolarWinds attack inserted malicious code into a software update, impacting thousands. SecureCI/CD prevents such supply chain attacks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center text-white mb-12 fade-in-up scroll-animate">Penetration Testing Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="glassy p-6 rounded-lg shadow-lg hover:bg-purple-900 transition duration-300 fade-in-up scroll-animate">
+          <h3 class="text-xl font-semibold text-purple-400 mb-4">Network Penetration Testing</h3>
+          <p class="text-gray-400">Simulate attacks to uncover network vulnerabilities.</p>
+        </div>
+        <div class="glassy p-6 rounded-lg shadow-lg hover:bg-purple-900 transition duration-300 fade-in-up scroll-animate">
+          <h3 class="text-xl font-semibold text-purple-400 mb-4">Application Penetration Testing</h3>
+          <p class="text-gray-400">Test web and mobile apps for security flaws.</p>
+        </div>
+        <div class="glassy p-6 rounded-lg shadow-lg hover:bg-purple-900 transition duration-300 fade-in-up scroll-animate">
+          <h3 class="text-xl font-semibold text-purple-400 mb-4">Social Engineering Testing</h3>
+          <p class="text-gray-400">Assess susceptibility to phishing and social attacks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-20 bg-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center text-white mb-12 fade-in-up scroll-animate">Pricing Plans</h2>
+      <p class="text-center text-gray-400 mb-8 scroll-animate">Choose the plan that fits your needs.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="glassy p-6 rounded-lg shadow-lg fade-in-up scroll-animate">
+          <h3 class="text-2xl font-semibold text-white mb-4">Free</h3>
+          <p class="text-gray-400 mb-4">Price: Free</p>
+          <ul class="text-gray-400 mb-6 space-y-2">
+            <li>Scan up to 3 public repositories</li>
+            <li>Basic misconfiguration detection</li>
+            <li>Alerts for insecure workflows</li>
+            <li>CLI tool access</li>
+            <li>Community support</li>
+          </ul>
+          <a href="#contact" class="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded w-full text-center block scale-in">Try Now</a>
+        </div>
+        <div class="glassy p-6 rounded-lg shadow-lg fade-in-up scroll-animate">
+          <h3 class="text-2xl font-semibold text-white mb-4">Pro – $99/month</h3>
+          <p class="text-gray-400 mb-4">Price: $99/month</p>
+          <ul class="text-gray-400 mb-6 space-y-2">
+            <li>Unlimited private/public repo scanning</li>
+            <li>GitHub PR bot for fixes</li>
+            <li>Advanced misconfig detection engine</li>
+            <li>Custom detection rules</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="#contact" class="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded w-full text-center block scale-in">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-20 bg-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center text-white mb-12 fade-in-up scroll-animate">FAQ – PurpleLotus Pentesting</h2>
+      <div class="max-w-2xl mx-auto space-y-6">
+        <div class="glassy p-6 rounded-lg fade-in-up scroll-animate">
+          <h3 class="text-xl font-semibold text-purple-400 mb-2">What types of pentesting does PurpleLotus offer?</h3>
+          <p class="text-gray-400">We offer web, mobile, cloud, network, and CI/CD pentesting tailored to modern threat landscapes.</p>
+        </div>
+        <div class="glassy p-6 rounded-lg fade-in-up scroll-animate">
+          <h3 class="text-xl font-semibold text-purple-400 mb-2">How are PurpleLotus pentests different from others?</h3>
+          <p class="text-gray-400">We go beyond checklists — focusing on real-world exploitation paths, misconfigurations, and chained logic flaws.</p>
+        </div>
+        <div class="glassy p-6 rounded-lg fade-in-up scroll-animate">
+          <h3 class="text-xl font-semibold text-purple-400 mb-2">Do you provide a detailed vulnerability report?</h3>
+          <p class="text-gray-400">Yes, every engagement includes a prioritized, developer-friendly report with reproduction steps and remediation guidance.</p>
+        </div>
+        <div class="glassy p-6 rounded-lg fade-in-up scroll-animate">
+          <h3 class="text-xl font-semibold text-purple-400 mb-2">Are your tests manual or automated?</h3>
+          <p class="text-gray-400">We combine automated scanning with expert-driven manual testing to uncover deep vulnerabilities tools often miss.</p>
+        </div>
+        <div class="glassy p-6 rounded-lg fade-in-up scroll-animate">
+          <h3 class="text-xl font-semibold text-purple-400 mb-2">Is PurpleLotus certified or recognized?</h3>
+          <p class="text-gray-400">Yes, our researchers are listed in top security halls of fame, including Microsoft and GitHub, and follow OWASP/CREST standards.</p>
+        </div>
+      </div>
+      <div class="mt-12 text-center scroll-animate">
+        <input type="email" placeholder="sam.grep@acme.com" class="p-3 rounded-l bg-gray-800 border border-gray-700 text-white w-64">
+        <button class="bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-r scale-in">Sign up for Newsletter</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center scroll-animate">
+      <p class="text-gray-400 mt-4">Security that ships with your code.</p>
+      <p class="text-gray-400 mt-2">© 2025 PurpleLotus, Inc.</p>
+    </div>
+  </footer>
+
+  <script type="text/javascript">
+    var gk_isXlsx = false;
+    var gk_xlsxFileLookup = {};
+    var gk_fileData = {};
+    function filledCell(cell) {
+      return cell !== '' && cell != null;
+    }
+    function loadFileData(filename) {
+      if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+        try {
+          var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+          var firstSheetName = workbook.SheetNames[0];
+          var worksheet = workbook.Sheets[firstSheetName];
+          var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+          var filteredData = jsonData.filter(row => row.some(filledCell));
+          var headerRowIndex = filteredData.findIndex((row, index) =>
+            row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+          );
+          if (headerRowIndex === -1 || headerRowIndex > 25) {
+            headerRowIndex = 0;
+          }
+          var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
+          csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+          return csv;
+        } catch (e) {
+          console.error(e);
+          return "";
+        }
+      }
+      return gk_fileData[filename] || "";
+    }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const elements = document.querySelectorAll('.scroll-animate');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      elements.forEach(element => observer.observe(element));
+    });
+  </script>
+</body>
+</html>
